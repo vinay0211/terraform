@@ -1,48 +1,60 @@
 variable "ami_id" {
-    type = string
-    default = "ami-09c813fb71547fc4f"
-    description = "AMI ID to join devops"
+  type        = string
+  default     = "ami-09c813fb71547fc4f"
+  description = "AMI ID of joindevops RHEL9"
 }
 
 variable "instance_type" {
-    type = string
-    default = "t3.micro"
+  default = "t3.micro"
 }
 
-variable "ec2_tags"  {
-    type = map(string)
-    default = {
-    Name = "roboshop"
-    purpose = "variable-demo"
-    }
+variable "ec2_tags" {
+  type = map(string)
+  default = {
+    Name    = "Roboshop"
+    Purpose = "variables-demo"
+  }
 }
+
 variable "sg_name" {
-    default = "allow_all"
+  default = "allow-all"
 }
+
 variable "sg_description" {
-    default = "Allowing all ports from all over the Internet"
+  default = "allowing all ports from internet"
 }
-variable "from_port"{
-    default=0
+
+variable "from_port" {
+  default = 0
 }
+
 variable "to_port" {
-    default=0
+  type    = number
+  default = 0
 }
+
 variable "cidr_blocks" {
-    default = ["0.0.0.0/0"]
-    type = list(string)
+  type    = list(string)
+  default = ["0.0.0.0/0"]
 }
+
 variable "sg_tags" {
-    default = {
-        name= "allow_all"
-    }
+  default = {
+    Name = "allow-all"
+  }
 }
-variable "environment"{
-    default="prod"
+
+variable "environment" {
+  default = "prod"
 }
+
 variable "instances" {
-    default= ["roboshop", "mysql", "redis", "rabbitmq"]
+  default = ["mongodb", "redis", "mysql", "rabbitmq"]
 }
+
 variable "domain_name" {
-    default= "dvkpro.site"
+  default = "dvkpro.site"
+}
+variable "zone_id" {
+    default =  "Z06716282KRRWH4FI390A" 
 }
