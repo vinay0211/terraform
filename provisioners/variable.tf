@@ -37,3 +37,4 @@ variable "sg_tags" {
         name= "allow_all"
     }
 }
+
